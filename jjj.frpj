@@ -31,4 +31,13 @@
             <Add assembly="FlexRule.Designer.DMN.dll" type="FlexRule.Designer.DMN.BoxedExpressionBuilderStrategy" description="Boxed Expression allows building reusable expressions across project" />
         </Builders>
     </ProjectProviders>
+    <TreeDocument>
+        <FollowIdent value="True" />
+        <ShowAttribute value="False" />
+        <ShowDescription value="False" />
+        <ShowType value="True" />
+        <ShowValue value="True" />
+        <ShowTreeLines value="True" />
+        <ShowGridLines value="True" />
+    </TreeDocument>
 </Designer>
