@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-may-2017 19:14:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelo.Colabora" table="colabora" catalog="cp">
+        <composite-id name="id" class="modelo.ColaboraId">
+            <key-property name="codExperto" type="string">
+                <column name="codExperto" length="4" />
+            </key-property>
+            <key-property name="codCaso" type="string">
+                <column name="codCaso" length="4" />
+            </key-property>
+            <key-property name="fecha" type="date">
+                <column name="fecha" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="experto" class="modelo.Experto" update="false" insert="false" fetch="select">
+            <column name="codExperto" length="4" not-null="true" />
+        </many-to-one>
+        <many-to-one name="casoPolicial" class="modelo.CasoPolicial" update="false" insert="false" fetch="select">
+            <column name="codCaso" length="4" not-null="true" />
+        </many-to-one>
+        <property name="descripcionColaboracion" type="string">
+            <column name="descripcion_colaboracion" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

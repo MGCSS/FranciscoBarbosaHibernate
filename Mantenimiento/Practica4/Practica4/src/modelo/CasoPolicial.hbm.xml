@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-may-2017 19:14:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelo.CasoPolicial" table="caso_policial" catalog="cp">
+        <id name="codCaso" type="string">
+            <column name="codCaso" length="4" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="fecha_inicio" length="10" />
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="10" />
+        </property>
+        <set name="colaboras" table="colabora" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codCaso" length="4" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Colabora" />
+        </set>
+    </class>
+</hibernate-mapping>

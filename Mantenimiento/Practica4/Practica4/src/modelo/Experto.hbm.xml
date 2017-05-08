@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-may-2017 19:14:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelo.Experto" table="experto" catalog="cp">
+        <id name="codExperto" type="string">
+            <column name="codExperto" length="4" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="pais" type="string">
+            <column name="pais" length="50" not-null="true" />
+        </property>
+        <property name="sexo" type="java.lang.Character">
+            <column name="sexo" length="1" />
+        </property>
+        <property name="especialidad" type="string">
+            <column name="especialidad" length="50" not-null="true" />
+        </property>
+        <set name="colaboras" table="colabora" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codExperto" length="4" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Colabora" />
+        </set>
+    </class>
+</hibernate-mapping>
